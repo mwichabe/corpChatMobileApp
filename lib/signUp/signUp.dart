@@ -1,4 +1,5 @@
 import 'package:corpchat/constants/colors.dart';
+import 'package:corpchat/home/home.dart';
 import 'package:corpchat/login/logIn.dart';
 import 'package:flutter/material.dart';
 
@@ -147,7 +148,10 @@ class SignUp extends StatelessWidget {
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.secondaryColor),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const Home()));
+              },
               child: const Text(
                 'Sign Up',
                 style: TextStyle(
