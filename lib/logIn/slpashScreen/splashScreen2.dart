@@ -1,3 +1,5 @@
+import 'package:corpchat/constants/colors.dart';
+import 'package:corpchat/login/logIn.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen2 extends StatelessWidget {
@@ -10,31 +12,52 @@ class SplashScreen2 extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset('assets/generals/Group 10252.png',fit: BoxFit.cover,),
+              Image.asset(
+                'assets/generals/Group 10252.png',
+                fit: BoxFit.cover,
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 9.8,
               ),
-              const Align(
-                  alignment: Alignment.bottomCenter,
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.center,
                   child: Text(
-                    'Enjoy new experience of meetings with \n clients and employees',
+                    'Enjoy new experience of meetings with clients and employees',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Poppins',
                     ),
-                  )),
+                  ),
+                ),
+              ),
               const Padding(
                 padding: EdgeInsets.only(top: 8.0, bottom: 13.0),
                 child: Align(
                     alignment: Alignment.center,
                     child: Text(
                       'Connectivity has been simplified for you',
-                      style: TextStyle(
-                          color: Colors.grey
-                      ),
+                      style: TextStyle(color: Colors.grey),
                     )),
               ),
-              ElevatedButton(onPressed: (){},
-                  child: Text('Get Started')
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LogIn()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.secondaryColor),
+                    child: const Text(
+                      'Get Started',
+                      style: TextStyle(
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
+                    )),
               )
             ],
           ),
